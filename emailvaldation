@@ -1,0 +1,25 @@
+import { View, Text,TextInput,TouchableOpacity } from 'react-native'
+import React, { useState } from 'react'
+export default function App() { 
+const[email,setEmail]=useState('');
+const[message,setMessage]=useState('') 
+function validate () { 
+console.log(email); 
+let reg = /^\w+([\.-]?\w+)*@\w+([\.-]?\w+)*(\.\w\w+)+$/; 
+if (reg.test(email) === false) {
+console.log("Email is Not Correct");
+return false; }
+else {
+console.log("Email is Correct");
+} }
+return (
+<View>
+<TextInput placeholder='ENTER YOUR EMAIL ID' 
+value={email}
+onChangeText={(email)=>setEmail(email)} />
+<TouchableOpacity 
+onPress={()=>validate()}>
+<Text>check</Text> 
+</TouchableOpacity>
+<Text> {message}</Text>
+</View> ) }
